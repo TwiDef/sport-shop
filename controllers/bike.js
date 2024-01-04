@@ -9,6 +9,17 @@ const getBikes = async (req, res) => {
     }
 }
 
+const getBike = async (req, res) => {
+    try {
+        const bike = await Bike.find({ _id: req.params.id });
+
+        res.status(200).json(bike);
+    } catch (error) {
+        res.status(400).json({ message: "Can't get bike" });
+    };
+};
+
 module.exports = {
-    getBikes
+    getBikes,
+    getBike
 }
