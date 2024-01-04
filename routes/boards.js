@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
+const { getBoards, getBoard } = require('../controllers/board');
+
 // Get /api/boards
-router.get('/', (req, res) => res.send('Get All boards'))
+router.get('/', getBoards)
 // Get /api/boards/:id
-router.get('/:id', (req, res) => res.send('Get single board'))
+router.get('/:id', getBoard)
 
 module.exports = router;
