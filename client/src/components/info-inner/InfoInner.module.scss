@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lemon&display=swap');
+
+.inner {
+    background-image: url('https://getwallpapers.com/wallpaper/full/d/5/1/1026016-free-downhill-mountain-bike-wallpaper-2880x1920-pc.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-position: center;
+    background-color: rgb(0, 0, 0);
+    padding-top: 90px;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Lemon', serif;
+}
+
+.shadow {
+    background-color: rgb(0, 0, 0, .4);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+
+}
+
+.title {
+    font-size: 90px;
+    margin-top: 10%;
+    text-shadow: 1px 4px 4px black;
+}
+
+.subTitle {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 1px 4px 4px black;
+}
