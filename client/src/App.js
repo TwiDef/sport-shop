@@ -2,7 +2,8 @@ import React from 'react';
 
 import Header from './components/header/Header';
 import InfoInner from './components/info-inner/InfoInner';
-import CarouselBikes from './components/carousel/CarouselBikes';
+import CarouselBlock from './components/carousel/CarouselBlock';
+import InfoBuy from './components/info-buy/InfoBuy';
 
 import styles from './App.module.scss';
 
@@ -13,10 +14,10 @@ function App() {
             <Header />
             <InfoInner />
             <div className={styles.container}>
-                <CarouselBikes />
+                <CarouselBlock />
             </div>
+            <InfoBuy />
         </div>
     );
 }
-
 export default App;

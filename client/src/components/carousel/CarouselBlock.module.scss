@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lemon&display=swap');
+
+.carouselWrapper {
+    margin-top: 80px;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Lemon', serif;
+    text-align: center;
+}
+
+.carousel {
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.carouselTitle {
+    font-size: 90px;
+    text-shadow: 1px 4px 4px black;
+}
+
+.carouselSubTitle {
+    margin-top: 20px;
+    font-size: 30px;
+    text-shadow: 1px 4px 4px black;
+}
+
+.slide {
+    width: 100%;
+}
+
+.sliderControlButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin: 20px;
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.carouselItem {
+    position: relative;
+}
+
+.carouselItemAbout {
+    top: 16px;
+    left: 20px;
+    position: absolute;
+    color: #323232;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+    z-index: 0;
+
+    &::before {
+        content: "";
+        position: absolute;
+        background-image: url(https://static.insales-cdn.com/assets/1/5244/1840252/1652522081/title_bg-2.png);
+        background-size: 100%;
+        width: 116%;
+        height: 123%;
+        z-index: -1;
+        top: -4px;
+        left: -18px;
+    }
+
+    h5 {
+        font-size: 20px;
+    }
+
+    span {
+        font-weight: 600;
+    }
+}
+
+/* https://static.insales-cdn.com/assets/1/5244/1840252/1652522081/title_bg-2.png */

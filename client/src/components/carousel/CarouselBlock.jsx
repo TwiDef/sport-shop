@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './CarouselBikes.module.scss';
+import styles from './CarouselBlock.module.scss';
 import Carousel from "nuka-carousel";
 
 
-const CarouselBikes = () => {
+const CarouselBlock = () => {
 
     const renderCenterRightControls = ({ nextSlide }) => {
         return (
@@ -74,12 +74,20 @@ const CarouselBikes = () => {
                     wrapAround={true}
                     renderCenterLeftControls={renderCenterLeftControls}
                     renderCenterRightControls={renderCenterRightControls}
-                    style={{ marginTop: '100px' }}
+                    autoplay={true}
+                    style={{ marginTop: '80px' }}
                 >
                     {carouselItems.map((item) => {
-                        return <img key={item.id} className={styles.slide} src={item.img} />
+                        return <div className={styles.carouselItem}>
+                            <div className={styles.carouselItemAbout}>
+                                <h5>Upland VANGUARD 200 - 29</h5>
+                                <span>35000.00</span>
+                            </div>
+                            <img key={item.id} className={styles.slide} src={item.img} />
+                        </div>
                     })}
                 </Carousel>
+
             </div>
 
         </div>
@@ -87,4 +95,4 @@ const CarouselBikes = () => {
 
 };
 
-export default CarouselBikes;
+export default CarouselBlock;
