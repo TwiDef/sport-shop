@@ -6,6 +6,7 @@ import InfoBuy from './components/info-buy/InfoBuy';
 
 import styles from './App.module.scss';
 import CarouselBlock from './components/carousel/CarouselBlock';
+import Footer from './components/footer/Footer';
 
 function App() {
 
@@ -13,11 +14,12 @@ function App() {
         <div className={styles.App}>
             <Header />
             <InfoInner />
-            <div className={styles.container}>
 
-            </div>
             <CarouselBlock />
             <InfoBuy />
+            <div className={styles.container}>
+                <Footer />
+            </div>
         </div>
     );
 }

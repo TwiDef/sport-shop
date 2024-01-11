@@ -71,7 +71,7 @@
     border: 0;
 }
 
-a:active {
+.blockBtn:active {
     border-bottom-style: none;
     border-color: #dadada;
     box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
@@ -80,8 +80,9 @@ a:active {
     background: #ca1f3b;
 }
 
-a:hover {
+.blockBtn:hover {
     border-bottom-style: none;
     border-color: #dadada;
     background: #b3233b;
+
 }
