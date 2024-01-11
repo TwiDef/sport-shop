@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lemon&display=swap');
 
 .infoBuy {
+    margin-top: 50px;
     background-image: url('https://hoenalu.com/sites/default/files/blog/vocabulario-remo/remada-sup-alta.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -82,5 +83,5 @@ a:active {
 a:hover {
     border-bottom-style: none;
     border-color: #dadada;
-
+    background: #b3233b;
 }

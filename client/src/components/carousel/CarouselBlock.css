@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lemon&display=swap');
+
+.carousel-wrapper {
+    margin-top: 50px;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Lemon', serif;
+    text-align: center;
+    color: #fff;
+}
+
+.carousel-title {
+    font-size: 90px;
+    text-shadow: 1px 4px 4px black;
+}
+
+.carousel-subtitle {
+    margin-top: 20px;
+    font-size: 30px;
+    text-shadow: 1px 4px 4px black;
+}
+
+.carousel {
+    padding: 4rem 0;
+    background-color: #323232;
+}
+
+.box {
+   /*  height: 300px; */
+   position: relative;
+}
+
+
+.box-inner {
+    position: absolute;
+    text-shadow: 1px 4px 4px black;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    transform: rotate(-15deg);
+    top: 21px;left: -8px;
+}
+
+.box-inner::after {
+    content: "";
+    position: absolute;
+    background-image: url(https://static.insales-cdn.com/assets/1/5244/1840252/1652522081/title_bg-2.png);
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.slick-slide div {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
