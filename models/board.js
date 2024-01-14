@@ -10,16 +10,20 @@ const boardSchema = mongoose.Schema({
         required: true
     },
     description: {
-        type: String
+        type: String,
+        required: true
     },
     length: {
-        type: Number
+        type: Number,
+        required: true
     },
     pressue: {
-        type: Number
+        type: Number,
+        required: true
     },
     boardImage: {
-        type: String
+        type: String,
+        required: true
     }
 });
 

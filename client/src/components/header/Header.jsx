@@ -5,26 +5,27 @@ import { MdDirectionsBike } from "react-icons/md";
 import { MdOutlineSurfing } from "react-icons/md";
 import { FaPhoneSquare } from "react-icons/fa";
 import styles from './Header.module.scss';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
     return (
         <header className={styles.header}>
             <nav className={styles.nav}>
-                <div className={styles.logo}>
+                <Link to="/" className={styles.logo}>
                     <img src="https://cdn-icons-png.flaticon.com/512/694/694693.png" alt="logo" />
-                </div>
+                </Link>
                 <ul className={styles.category}>
-                    <a href="#" className="categoryItemLink">
+                    <Link to="/" className="categoryItemLink">
                         <li className={styles.categoryItem}>
                             <FaHome />Home
                         </li>
-                    </a>
-                    <a href="#" className="categoryItemLink">
+                    </Link>
+                    <Link to="/bikes" className="categoryItemLink">
                         <li className={styles.categoryItem}>
                             <MdDirectionsBike />Bikes
                         </li>
-                    </a>
+                    </Link>
                     <a href="#" className="categoryItemLink">
                         <li className={styles.categoryItem}>
                             <MdOutlineSurfing />Boards

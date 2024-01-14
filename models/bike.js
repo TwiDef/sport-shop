@@ -10,17 +10,22 @@ const bikeSchema = mongoose.Schema({
         required: true
     },
     description: {
-        type: String
+        type: String,
+        required: true
     },
     color: {
-        type: String
+        type: String,
+        required: true
     },
     weight: {
-        type: Number
+        type: Number,
+        required: true
     },
     bikeImage: {
-        type: String
+        type: String,
+        required: true
     }
 });
+
 
 module.exports = mongoose.model('Bike', bikeSchema)

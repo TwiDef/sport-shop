@@ -1,4 +1,9 @@
 const Bike = require('../models/bike');
+/** 
+ * Get all items
+ * @param {*} req 
+ * @param {*} res 
+ */
 
 const getBikes = async (req, res) => {
     try {

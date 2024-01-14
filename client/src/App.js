@@ -1,25 +1,22 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
-import InfoInner from './components/info-inner/InfoInner';
-import InfoBuy from './components/info-buy/InfoBuy';
+import MainPage from './pages/main-page';
+import BikesCatalogPage from './pages/bikes-catalog-page';
 
 import styles from './App.module.scss';
-import CarouselBlock from './components/carousel/CarouselBlock';
-import Footer from './components/footer/Footer';
 
 function App() {
 
     return (
         <div className={styles.App}>
             <Header />
-            <InfoInner />
-
-            <CarouselBlock />
-            <InfoBuy />
-            <div className={styles.container}>
-                <Footer />
-            </div>
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/bikes" element={<div className={styles.container}>
+                    <BikesCatalogPage />
+                </div>} />
+            </Routes>
         </div>
     );
 }
