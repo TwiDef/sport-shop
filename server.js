@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const cors = require('cors')
+const cors = require('cors') // <--- important
 require('dotenv').config();
 const port = process.env.PORT || 5000;
 
-app.use(cors())
+app.use(cors()) // <--- important
 
 app.use(express.json()); // for parsing application/json
 /* app.use(express.urlencoded({ extended: true })); */

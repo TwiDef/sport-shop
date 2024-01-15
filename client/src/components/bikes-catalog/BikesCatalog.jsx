@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchBikes } from '../../redux/slices/bikeSlice';
+
 import styles from './BikesCatalog.module.scss';
-import axios from 'axios';
+
 const BikesCatalog = () => {
 
-    const [bikes, setBikes] = useState([])
+    const bikes = useSelector(state => state.bikes)
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        const getBikes = async () => {
-            const bikes = await axios.get("api/bikes")
-            setBikes(bikes.data)
-        }
-
-        getBikes()
+        dispatch(fetchBikes())
     }, [])
 
-    console.log('Bikecatalog render');
     console.log(bikes);
+
     return (
         <div className={styles.bikesCatalog}>
             <h3>Bikes catalog</h3>
@@ -28,11 +27,15 @@ const BikesCatalog = () => {
                         <h5>TWITTER Storm 2.0 27.5</h5>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae beatae magnam odit reprehenderit </p>
                         <div className={styles.cardFooter}>
-                            <span>1350$</span>
+                            <p>{new Intl.NumberFormat('ru-Ru', {
+                                style: 'currency',
+                                currency: 'USD'
+                            }).format(350)}</p>
                             <button>buy</button>
                         </div>
                     </div>
                 </div>
+
 
             </div>
             <hr />
