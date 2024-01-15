@@ -9,8 +9,8 @@ export const fetchBikes = createAsyncThunk('GET_BIKES', async (_, thunkAPI) => {
     }
 })
 
-export const bikeSlice = createSlice({
-    name: 'bikes',
+export const itemsSlice = createSlice({
+    name: 'items',
     initialState: {
         bikes: [],
         isError: false,
@@ -35,6 +35,6 @@ export const bikeSlice = createSlice({
     }
 })
 
-export const { } = bikeSlice.actions
+export const { } = itemsSlice.actions
 
-export default bikeSlice.reducer
+export default itemsSlice.reducer

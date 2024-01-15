@@ -111,3 +111,14 @@
 
     }
 }
+
+.skeletonsWrapper {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+
+    div {
+        margin-bottom: 20px;
+    }
+}

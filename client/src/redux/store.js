@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import bikeReducer from './slices/bikeSlice';
+import itemsReducer from './slices/itemsSlice';
 
 export default configureStore({
     reducer: {
-        bikes: bikeReducer
+        items: itemsReducer
     }
 })
