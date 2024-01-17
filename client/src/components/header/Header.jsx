@@ -12,7 +12,7 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <nav className={styles.nav}>
-                <Link to="/" className={styles.logo}>
+                <Link to="/" className={styles.logo} onClick={() => window.scrollTo(0, 0)}>
                     <img src="https://cdn-icons-png.flaticon.com/512/694/694693.png" alt="logo" />
                 </Link>
                 <ul className={styles.category}>
@@ -48,7 +48,7 @@ const Header = () => {
                 </div>
             </a>
 
-        </header>
+        </header >
     );
 };
 

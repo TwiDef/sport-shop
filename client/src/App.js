@@ -4,6 +4,7 @@ import Header from './components/header/Header';
 import MainPage from './pages/main-page';
 import BikesCatalogPage from './pages/bikes-catalog-page';
 
+
 import styles from './App.module.scss';
 
 function App() {
