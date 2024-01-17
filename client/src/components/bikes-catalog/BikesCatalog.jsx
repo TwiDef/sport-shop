@@ -11,7 +11,7 @@ const BikesCatalog = () => {
     const { bikes, isLoading } = useSelector(state => state.items)
     const dispatch = useDispatch()
 
-    const skeletons = [...new Array(9)].map((_, i) => <div><Sceleton key={i} /></div>)
+    const skeletons = [...new Array(6)].map((_, i) => <div><Sceleton key={i} /></div>)
 
     useEffect(() => {
         dispatch(fetchBikes())

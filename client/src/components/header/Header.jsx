@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
 
+
     return (
         <header className={styles.header}>
             <nav className={styles.nav}>
@@ -26,7 +27,7 @@ const Header = () => {
                             <MdDirectionsBike />Bikes
                         </li>
                     </Link>
-                    <a href="#" className="categoryItemLink">
+                    <a href="/boards" className="categoryItemLink">
                         <li className={styles.categoryItem}>
                             <MdOutlineSurfing />Boards
                         </li>

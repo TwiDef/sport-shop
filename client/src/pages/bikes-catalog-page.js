@@ -1,10 +1,20 @@
-import React from 'react';
-import BikesCatalog from '../components/bikes-catalog/BikesCatalog';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchBikes } from '../redux/slices/itemsSlice';
+import Catalog from '../components/catalog/Catalog';
 
 const BikesCatalogPage = () => {
+
+    const { bikes, isLoading } = useSelector(state => state.items)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchBikes())
+    }, [dispatch])
+
     return (
         <div>
-            <BikesCatalog />
+            <Catalog items={bikes} isLoading={isLoading} title={"Bikes"} />
         </div>
     );
 };
