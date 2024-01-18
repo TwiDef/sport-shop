@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import styles from './Catalog.module.scss';
 import Sceleton from '../sceleton/Sceleton';
 
-const Catalog = ({ items, isLoading, title }) => {
-    console.log(items);
+import styles from './Catalog.module.scss';
 
+const Catalog = ({ items, isLoading, title }) => {
     const skeletons = [...new Array(6)].map((_, i) => <div><Sceleton key={i} /></div>)
 
     const [itemOffset, setItemOffset] = useState(0);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchBoards } from '../redux/slices/itemsSlice';
+import { fetchBoards, setActiveCategory } from '../redux/slices/itemsSlice';
 import Catalog from '../components/catalog/Catalog';
 
 const BoardsCatalogPage = () => {
@@ -11,6 +11,15 @@ const BoardsCatalogPage = () => {
     useEffect(() => {
         dispatch(fetchBoards())
     }, [dispatch])
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    useEffect(() => {
+        dispatch(setActiveCategory(2))
+    }, [dispatch])
+
 
     return (
         <div>

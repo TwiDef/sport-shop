@@ -30,6 +30,25 @@
     }
 }
 
+.categoryItemActive {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 8px;
+        height: 8px;
+        background: #e60d30;
+        border-radius: 50%;
+        top: 23px;
+        left: 6px;
+    }
+}
+
+
 .categoryItem {
     position: relative;
     height: 90px;

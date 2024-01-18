@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchBikes } from '../redux/slices/itemsSlice';
+import { fetchBikes, setActiveCategory } from '../redux/slices/itemsSlice';
 import Catalog from '../components/catalog/Catalog';
 
 const BikesCatalogPage = () => {
@@ -10,6 +10,14 @@ const BikesCatalogPage = () => {
 
     useEffect(() => {
         dispatch(fetchBikes())
+    }, [dispatch])
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    useEffect(() => {
+        dispatch(setActiveCategory(1))
     }, [dispatch])
 
     return (

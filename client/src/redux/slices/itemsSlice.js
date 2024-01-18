@@ -28,7 +28,13 @@ export const itemsSlice = createSlice({
         boards: [],
         isError: false,
         isLoading: false,
-        message: ""
+        message: "",
+        activeCategory: null
+    },
+    reducers: {
+        setActiveCategory: (state, action) => {
+            state.activeCategory = action.payload
+        }
     },
     extraReducers: (builder) => {
         /* fetchBikes */
@@ -65,6 +71,6 @@ export const itemsSlice = createSlice({
     }
 })
 
-export const { } = itemsSlice.actions
+export const { setActiveCategory } = itemsSlice.actions
 
 export default itemsSlice.reducer

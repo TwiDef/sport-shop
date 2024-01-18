@@ -1,14 +1,51 @@
-import React from 'react';
-
-import { FaHome } from "react-icons/fa";
-import { MdDirectionsBike } from "react-icons/md";
-import { MdOutlineSurfing } from "react-icons/md";
-import { FaPhoneSquare } from "react-icons/fa";
-import styles from './Header.module.scss';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setActiveCategory } from '../../redux/slices/itemsSlice';
+
+import { FaHome, FaPhoneSquare } from "react-icons/fa";
+import { MdDirectionsBike, MdOutlineSurfing } from "react-icons/md";
+
+import styles from './Header.module.scss';
 
 const Header = () => {
 
+    const categories = [
+        {
+            to: "/",
+            icon: <FaHome />,
+            children: "Home",
+            active: false
+        },
+        {
+            to: "/bikes",
+            icon: <MdDirectionsBike />,
+            children: "Bikes",
+            active: false
+        },
+        {
+            to: "/boards",
+            icon: <MdOutlineSurfing />,
+            children: "Boards",
+            active: false
+        },
+        {
+            to: "/contacts",
+            icon: <FaPhoneSquare />,
+            children: "Contacts",
+            active: false
+        },
+    ]
+
+    const { activeCategory } = useSelector(state => state.items)
+    const dispatch = useDispatch()
+
+    const handleClick = (i) => {
+        dispatch(setActiveCategory(i))
+        categories.forEach(category => {
+            category.active = true
+        })
+    }
 
     return (
         <header className={styles.header}>
@@ -17,26 +54,17 @@ const Header = () => {
                     <img src="https://cdn-icons-png.flaticon.com/512/694/694693.png" alt="logo" />
                 </Link>
                 <ul className={styles.category}>
-                    <Link to="/" className="categoryItemLink">
-                        <li className={styles.categoryItem}>
-                            <FaHome />Home
-                        </li>
-                    </Link>
-                    <Link to="/bikes" className="categoryItemLink">
-                        <li className={styles.categoryItem}>
-                            <MdDirectionsBike />Bikes
-                        </li>
-                    </Link>
-                    <a href="/boards" className="categoryItemLink">
-                        <li className={styles.categoryItem}>
-                            <MdOutlineSurfing />Boards
-                        </li>
-                    </a>
-                    <a href="#" className="categoryItemLink">
-                        <li className={styles.categoryItem}>
-                            <FaPhoneSquare />Contacts
-                        </li>
-                    </a>
+                    {
+                        categories.map((category, i) => {
+                            const className = activeCategory === i ? styles.categoryItemActive : styles.categoryItem
+                            return <Link key={i} to={category.to} className={styles.categoryItemLink}>
+                                <li className={className}
+                                    onClick={() => handleClick(i)}>
+                                    {category.icon}{category.children}
+                                </li>
+                            </Link>
+                        })
+                    }
                 </ul>
             </nav>
             <a className={styles.cart}
