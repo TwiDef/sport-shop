@@ -6,6 +6,7 @@ import BikesCatalogPage from './pages/bikes-catalog-page';
 import BoardsCatalogPage from './pages/boards-catalog-page';
 
 import styles from './App.module.scss';
+import NotFoundPage from './pages/not-found-page';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/boards" element={<div className={styles.container}>
                     <BoardsCatalogPage />
                 </div>} />
+                <Route path='*' element={<NotFoundPage />} />
             </Routes>
         </div>
     );
