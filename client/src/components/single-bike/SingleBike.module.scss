@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lemon&display=swap');
+
+.title {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Lemon', serif;
+    font-size: 46px;
+    font-weight: 300;
+}
+
+.wrapper {
+    margin-top: 4%;
+    display: flex;
+    gap: 2%;
+
+    h5 {
+        font-family: 'Inter', sans-serif;
+        font-family: 'Lemon', serif;
+        font-size: 36px;
+        text-transform: uppercase;
+        color: rgb(239, 106, 106);
+    }
+
+}
+
+.img {
+    position: relative;
+
+
+    .imageName {
+        font-size: 36px;
+        position: absolute;
+        font-family: 'Inter', sans-serif;
+        font-family: 'Lemon', serif;
+        z-index: 1;
+        bottom: 10px;
+        left: 50px;
+
+        &::after {
+            position: absolute;
+            content: "";
+            background-image: url(https://static.insales-cdn.com/assets/1/5244/1840252/1652522081/title_bg-2.png);
+            background-size: 100%;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    p {
+        font-size: 25px;
+
+    }
+}
+
+.footer {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.price {
+    font-size: 44px;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Lemon', serif;
+}

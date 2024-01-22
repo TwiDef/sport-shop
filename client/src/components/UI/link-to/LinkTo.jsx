@@ -5,7 +5,7 @@ import styles from './LinkTo.module.scss';
 
 const LinkTo = ({ to, children }) => {
     return (
-        <Link to={to} className={styles.btn}>{children}</Link>
+        <Link to={to} className={styles.lnk}>{children}</Link>
     );
 };
 

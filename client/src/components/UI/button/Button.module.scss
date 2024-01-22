@@ -1,4 +1,4 @@
-.lnk {
+.btn {
     background: #e62143;
     border-radius: 11px;
     box-sizing: border-box;
@@ -24,7 +24,7 @@
     border: 0;
 }
 
-.lnk:active {
+.btn:active {
     border-bottom-style: none;
     border-color: #dadada;
     box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
@@ -33,7 +33,7 @@
     background: #ca1f3b;
 }
 
-.lnk:hover {
+.btn:hover {
     border-bottom-style: none;
     border-color: #dadada;
     background: #b3233b;

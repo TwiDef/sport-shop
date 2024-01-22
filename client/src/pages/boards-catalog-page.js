@@ -23,7 +23,11 @@ const BoardsCatalogPage = () => {
 
     return (
         <div>
-            <Catalog items={boards} isLoading={isLoading} title={"Boards"} />
+            <Catalog
+                items={boards}
+                isLoading={isLoading}
+                title={"Boards"}
+                paramName={'boards'} />
         </div>
     );
 };

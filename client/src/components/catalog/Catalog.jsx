@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import ReactPaginate from 'react-paginate';
 import Sceleton from '../sceleton/Sceleton';
 
 import styles from './Catalog.module.scss';
 
-const Catalog = ({ items, isLoading, title }) => {
+const Catalog = ({ items, isLoading, title, paramName }) => {
+
     const skeletons = [...new Array(6)].map((_, i) => <div><Sceleton key={i} /></div>)
 
     const [itemOffset, setItemOffset] = useState(0);
@@ -41,7 +43,9 @@ const Catalog = ({ items, isLoading, title }) => {
                 {currentItems.map(item => {
                     return (
                         <div key={item._id} className={styles.card}>
-                            <img src={item.image} alt={item.name} />
+                            <Link to={`/${paramName}/${item._id}`}>
+                                <img src={item.image} alt={item.name} />
+                            </Link>
                             <div className={styles.cardInfo}>
                                 <h5>{item.name}</h5>
                                 <p>{`${item.description.slice(0, 120)} . . .`}</p>
