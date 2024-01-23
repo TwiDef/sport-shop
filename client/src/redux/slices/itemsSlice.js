@@ -37,7 +37,6 @@ export const itemsSlice = createSlice({
             state.activeCategory = action.payload
         },
         setCurrentItem: (state, action) => {
-            console.log(action);
             if (action.payload.type === "bikes") {
                 state.currentItem = state.bikes.filter(bike => bike._id === action.payload.id)[0]
             }

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentItem, removeCurrentItem } from '../../redux/slices/itemsSlice';
 
@@ -11,6 +11,7 @@ import styles from './SingleBike.module.scss';
 const SingleBike = () => {
     const params = useParams()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const { currentItem } = useSelector(state => state.items)
     const { id } = params
@@ -48,7 +49,10 @@ const SingleBike = () => {
                         currency: 'USD'
                     }).format(currentItem.price)}
                 </p>
-                <Button pY={12} pX={60} onClick={() => alert('Bought ')} children={'buy'} />
+                <div className={styles.btnContainer}>
+                    <Button pY={12} pX={60} onClick={() => alert('Bought ')} children={'buy'} />
+                    <Button pY={12} pX={70} onClick={() => { navigate(-1) }} children={'back'} />
+                </div>
             </div>
         </div>
     );

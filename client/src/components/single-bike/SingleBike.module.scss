@@ -13,7 +13,7 @@
     font-family: 'Lemon', serif;
     font-size: 46px;
     font-weight: 300;
-    animation: appearance 1s ease-in-out;
+    animation: appearance 2s ease-in-out;
 }
 
 .wrapper {
@@ -78,7 +78,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    animation: appearance 1s ease-in-out;
+    animation: appearance 2s ease-in-out;
 }
 
 .price {
@@ -86,6 +86,12 @@
     font-family: 'Inter', sans-serif;
     font-family: 'Lemon', serif;
 }
+
+.btnContainer {
+    display: flex;
+    gap: 20px;
+}
+
 
 /* animations */
 @keyframes slideFromLeft {
