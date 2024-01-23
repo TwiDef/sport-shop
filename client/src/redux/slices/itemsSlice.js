@@ -37,7 +37,16 @@ export const itemsSlice = createSlice({
             state.activeCategory = action.payload
         },
         setCurrentItem: (state, action) => {
-            state.currentItem = state.bikes.filter(bike => bike._id === action.payload)[0]
+            console.log(action);
+            if (action.payload.type === "bikes") {
+                state.currentItem = state.bikes.filter(bike => bike._id === action.payload.id)[0]
+            }
+            if (action.payload.type === "boards") {
+                state.currentItem = state.boards.filter(board => board._id === action.payload.id)[0]
+            }
+        },
+        removeCurrentItem: (state) => {
+            state.currentItem = null
         }
     },
     extraReducers: (builder) => {
@@ -75,6 +84,6 @@ export const itemsSlice = createSlice({
     }
 })
 
-export const { setActiveCategory, setCurrentItem } = itemsSlice.actions
+export const { setActiveCategory, setCurrentItem, removeCurrentItem } = itemsSlice.actions
 
 export default itemsSlice.reducer

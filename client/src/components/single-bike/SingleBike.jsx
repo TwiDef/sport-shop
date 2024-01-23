@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentItem } from '../../redux/slices/itemsSlice';
+import { setCurrentItem, removeCurrentItem } from '../../redux/slices/itemsSlice';
+
+import Button from '../UI/button/Button';
+import Spinner from '../spinner/Spinner';
 
 import styles from './SingleBike.module.scss';
-import Button from '../UI/button/Button';
 
 const SingleBike = () => {
     const params = useParams()
@@ -13,12 +15,14 @@ const SingleBike = () => {
     const { currentItem } = useSelector(state => state.items)
     const { id } = params
 
-
     useEffect(() => {
-        dispatch(setCurrentItem(id))
+        dispatch(setCurrentItem({ type: "bikes", id }))
+        return () => {
+            dispatch(removeCurrentItem())
+        }
     }, [id])
 
-    if (!currentItem) return <div>Loading...</div>
+    if (!currentItem) return <div className={styles.spinner}><Spinner /></div>
 
     return (
         <div style={{ padding: "30px" }}>
@@ -44,7 +48,7 @@ const SingleBike = () => {
                         currency: 'USD'
                     }).format(currentItem.price)}
                 </p>
-                <Button onClick={() => alert('Bought ')} children={'buy'} />
+                <Button pY={12} pX={60} onClick={() => alert('Bought ')} children={'buy'} />
             </div>
         </div>
     );

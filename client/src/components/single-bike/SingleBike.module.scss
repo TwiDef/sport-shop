@@ -1,17 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lemon&display=swap');
 
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .title {
     text-align: center;
     font-family: 'Inter', sans-serif;
     font-family: 'Lemon', serif;
     font-size: 46px;
     font-weight: 300;
+    animation: appearance 1s ease-in-out;
 }
 
 .wrapper {
-    margin-top: 4%;
+    margin-top: 90px;
     display: flex;
-    gap: 2%;
+    gap: 4%;
+    overflow: hidden;
 
     h5 {
         font-family: 'Inter', sans-serif;
@@ -25,7 +34,7 @@
 
 .img {
     position: relative;
-
+    animation: slideFromLeft .5s ease-in-out;
 
     .imageName {
         font-size: 36px;
@@ -55,6 +64,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    position: relative;
+    animation: slideFromRight .5s ease-in-out;
 
     p {
         font-size: 25px;
@@ -63,14 +74,50 @@
 }
 
 .footer {
-    margin-top: 60px;
+    margin-top: 90px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    animation: appearance 1s ease-in-out;
 }
 
 .price {
     font-size: 44px;
     font-family: 'Inter', sans-serif;
     font-family: 'Lemon', serif;
+}
+
+/* animations */
+@keyframes slideFromLeft {
+    from {
+        opacity: 0;
+        right: 100%;
+    }
+
+    to {
+        opacity: 1;
+        right: 0;
+    }
+}
+
+@keyframes slideFromRight {
+    from {
+        opacity: 0;
+        left: 100%;
+    }
+
+    to {
+        opacity: 1;
+        left: 0;
+    }
+}
+
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

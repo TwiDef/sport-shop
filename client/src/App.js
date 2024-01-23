@@ -9,6 +9,7 @@ import NotFoundPage from './pages/not-found-page';
 import SingleBikePage from './pages/single-bike-page';
 
 import styles from './App.module.scss';
+import SingleBoardPage from './pages/single-board-page';
 
 
 
@@ -27,6 +28,9 @@ function App() {
                 </div>} />
                 <Route path="/boards" element={<div className={styles.container}>
                     <BoardsCatalogPage />
+                </div>} />
+                <Route path="/boards/:id" element={<div className={styles.containerXl}>
+                    <SingleBoardPage />
                 </div>} />
 
                 <Route path='*' element={<NotFoundPage />} />
