@@ -37,7 +37,8 @@
     flex-direction: column;
     z-index: 1;
     transform: rotate(-15deg);
-    top: 21px;left: -8px;
+    top: 30px;
+    left: -8px;
 }
 
 .box-inner::after {

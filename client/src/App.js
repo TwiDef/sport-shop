@@ -11,8 +11,6 @@ import SingleBikePage from './pages/single-bike-page';
 import styles from './App.module.scss';
 import SingleBoardPage from './pages/single-board-page';
 
-
-
 function App() {
 
     return (

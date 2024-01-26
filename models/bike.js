@@ -24,6 +24,9 @@ const bikeSchema = mongoose.Schema({
     bikeImage: {
         type: String,
         required: true
+    },
+    rating: {
+        type: Number
     }
 });
 
