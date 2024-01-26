@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchBikes } from '../../redux/slices/itemsSlice';
 
 import Slider from "react-slick";
@@ -59,29 +60,21 @@ const CarouselBlock = () => {
                     {
                         bikes.filter(bike => bike.rating > 5)
                             .map((item) => {
-                                return <div key={item._id} className='box'>
-                                    <div className='box-inner'>
-                                        <span>{item.name}</span>
-                                        <span>{new Intl.NumberFormat('ru-Ru', {
-                                            style: 'currency',
-                                            currency: 'USD'
-                                        }).format(item.price)}</span>
+                                return <Link to={`bikes/${item._id}`}>
+                                    <div key={item._id} className='box'>
+                                        <span className='box-rating'>{item.rating}</span>
+                                        <div className='box-inner'>
+                                            <span>{item.name}</span>
+                                            <span>{new Intl.NumberFormat('ru-Ru', {
+                                                style: 'currency',
+                                                currency: 'USD'
+                                            }).format(item.price)}</span>
+                                        </div>
+                                        <img className="slide-img" src={item.image} alt={item.id} />
                                     </div>
-                                    <img className="slide-img" src={item.image} alt={item.id} />
-                                </div>
-
+                                </Link>
                             })
                     }
-
-                    {/*  {carouselItems.map((item) => {
-                        return <div key={item.id} className="box">
-                            <div className='box-inner'>
-                                <span>Upland X90 -27.5</span>
-                                <span>35000</span>
-                            </div>
-                            <img className="slide-img" src={item.img} alt={item.id} />
-                        </div>
-                    })} */}
 
                 </Slider>
             </div>

@@ -52,6 +52,7 @@ const BikesCatalog = () => {
                 {currentItems.map(bike => {
                     return (
                         <div key={bike._id} className={styles.card}>
+                            {/* <span>{bike.rating}</span> */}
                             <img src={bike.bikeImage} alt={bike.name} />
                             <div className={styles.cardInfo}>
                                 <h5>{bike.name}</h5>

@@ -33,6 +33,7 @@ const SingleBoard = () => {
                 <div className={styles.img}>
                     <p className={styles.imageName}>{currentItem.name}</p>
                     <img src={currentItem.image} alt={currentItem.name} />
+                    <span className={styles.rating}>{currentItem.rating}</span>
                 </div>
                 <div className={styles.about}>
                     <h5>цвет: </h5>

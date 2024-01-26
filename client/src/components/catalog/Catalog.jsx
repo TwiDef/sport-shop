@@ -43,6 +43,7 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
                 {currentItems.map(item => {
                     return (
                         <div key={item._id} className={styles.card}>
+                            <span className={styles.rating}>{item.rating}</span>
                             <Link to={`/${paramName}/${item._id}`}>
                                 <img src={item.image} alt={item.name} />
                             </Link>
