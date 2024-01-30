@@ -24,6 +24,9 @@ const boardSchema = mongoose.Schema({
     boardImage: {
         type: String,
         required: true
+    },
+    rating: {
+        type: Number
     }
 });
 

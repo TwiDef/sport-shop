@@ -26,6 +26,7 @@ export const itemsSlice = createSlice({
     initialState: {
         bikes: [],
         boards: [],
+        cartItems: [],
         currentItem: null,
         isError: false,
         isLoading: false,
@@ -46,6 +47,9 @@ export const itemsSlice = createSlice({
         },
         removeCurrentItem: (state) => {
             state.currentItem = null
+        },
+        addItemToCart: (state, action) => {
+            state.cartItems = [...state.cartItems, action.payload]
         }
     },
     extraReducers: (builder) => {
@@ -83,6 +87,6 @@ export const itemsSlice = createSlice({
     }
 })
 
-export const { setActiveCategory, setCurrentItem, removeCurrentItem } = itemsSlice.actions
+export const { setActiveCategory, setCurrentItem, removeCurrentItem, addItemToCart } = itemsSlice.actions
 
 export default itemsSlice.reducer

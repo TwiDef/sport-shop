@@ -7,9 +7,11 @@ import BikesCatalogPage from './pages/bikes-catalog-page';
 import BoardsCatalogPage from './pages/boards-catalog-page';
 import NotFoundPage from './pages/not-found-page';
 import SingleBikePage from './pages/single-bike-page';
+import SingleBoardPage from './pages/single-board-page';
+import CartPage from './pages/cart-page';
 
 import styles from './App.module.scss';
-import SingleBoardPage from './pages/single-board-page';
+
 
 function App() {
 
@@ -29,6 +31,9 @@ function App() {
                 </div>} />
                 <Route path="/boards/:id" element={<div className={styles.containerXl}>
                     <SingleBoardPage />
+                </div>} />
+                <Route path="/cart" element={<div className={styles.container}>
+                    <CartPage />
                 </div>} />
 
                 <Route path='*' element={<NotFoundPage />} />

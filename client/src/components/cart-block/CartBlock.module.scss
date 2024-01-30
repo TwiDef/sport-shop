@@ -1,0 +1,99 @@
+.wrapper {
+    padding: 8% 0;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-family: "Inter", sans-serif;
+    font-family: "Lemon", serif;
+    font-size: 50px;
+    letter-spacing: 5px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.clearBtn {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.cartItemWrapper {
+    padding: 0 100px;
+}
+
+.cartItem {
+    margin: 40px 0;
+    border-top: 1px solid #a54a59;
+    border-bottom: 1px solid #a54a59;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+
+    img {
+        width: 200px;
+        object-fit: cover;
+    }
+}
+
+.cartItemRating {
+    position: absolute;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/1828/1828884.png);
+    background-size: 100%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #323232;
+    top: 2px;
+    left: 2px;
+    font-weight: 700;
+}
+
+.cartItemName {
+    font-family: "Inter", sans-serif;
+    font-family: "Lemon", serif;
+    font-size: 22px;
+}
+
+
+
+.cartItemPrice {
+    font-size: 30px;
+    font-family: "Inter", sans-serif;
+    font-family: "Lemon", serif;
+    color: #fb3455;
+}
+
+.cartItemAbout {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.removeFromCartBtn {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        color: #fb3455;
+    }
+}

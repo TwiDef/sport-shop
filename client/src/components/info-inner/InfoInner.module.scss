@@ -10,6 +10,7 @@
     padding-top: 90px;
     font-family: 'Inter', sans-serif;
     font-family: 'Lemon', serif;
+    animation: appearance 1s ease-in-out;
 }
 
 .shadow {
@@ -32,4 +33,16 @@
     text-align: center;
     font-size: 30px;
     text-shadow: 1px 4px 4px black;
+}
+
+/* animations */
+
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

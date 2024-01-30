@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../../redux/slices/itemsSlice';
 import ReactPaginate from 'react-paginate';
 import Sceleton from '../sceleton/Sceleton';
 
 import styles from './Catalog.module.scss';
 
 const Catalog = ({ items, isLoading, title, paramName }) => {
+
+    const dispatch = useDispatch()
 
     const skeletons = [...new Array(6)].map((_, i) => <div><Sceleton key={i} /></div>)
 
@@ -55,7 +59,7 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
                                         style: 'currency',
                                         currency: 'USD'
                                     }).format(item.price)}</p>
-                                    <button>buy</button>
+                                    <button onClick={() => dispatch(addItemToCart(item))}>buy</button>
                                 </div>
                             </div>
                         </div>
