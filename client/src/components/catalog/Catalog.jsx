@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../../redux/slices/itemsSlice';
+import { addItemToCart } from '../../redux/slices/cartSlice';
 import ReactPaginate from 'react-paginate';
 import Sceleton from '../sceleton/Sceleton';
 
@@ -25,6 +25,18 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
         setItemOffset(newOffset);
         window.scrollTo(0, 0);
     };
+
+    const addToCart = (item) => {
+        const cartItem = {
+            id: item._id,
+            name: item.name,
+            price: item.price,
+            image: item.image,
+            rating: item.rating,
+            count: 0
+        }
+        dispatch(addItemToCart(cartItem))
+    }
 
     if (isLoading) {
         return (
@@ -59,7 +71,7 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
                                         style: 'currency',
                                         currency: 'USD'
                                     }).format(item.price)}</p>
-                                    <button onClick={() => dispatch(addItemToCart(item))}>buy</button>
+                                    <button onClick={() => addToCart(item)}>buy</button>
                                 </div>
                             </div>
                         </div>

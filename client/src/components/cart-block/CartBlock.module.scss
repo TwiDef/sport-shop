@@ -63,6 +63,52 @@
     font-weight: 700;
 }
 
+.cartItemInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    span {
+        font-family: "Inter", sans-serif;
+        font-family: "Lemon", serif;
+        font-size: 28px;
+        font-weight: 600px;
+    }
+
+}
+
+.cartItemQuantity {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        background-color: #fb3455;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.05s ease-in-out;
+
+        &:hover {
+            background-color: rgb(185, 40, 65)
+        }
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+
+
+}
+
 .cartItemName {
     font-family: "Inter", sans-serif;
     font-family: "Lemon", serif;
@@ -96,4 +142,30 @@
     &:hover {
         color: #fb3455;
     }
+}
+
+.footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    font-family: "Inter", sans-serif;
+    font-family: "Lemon", serif;
+}
+
+.totalQuantity {
+    p {
+        display: inline;
+        color: #fb3455;
+    }
+}
+
+
+.totalPrice {
+    p {
+        display: inline;
+        color: #fb3455;
+    }
+
 }

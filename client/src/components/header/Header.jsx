@@ -37,7 +37,8 @@ const Header = () => {
         },
     ]
 
-    const { activeCategory, cartItems } = useSelector(state => state.items)
+    const { activeCategory } = useSelector(state => state.items)
+    const { cartItems } = useSelector(state => state.cart)
     const dispatch = useDispatch()
 
     const handleClick = (i) => {
@@ -73,7 +74,9 @@ const Header = () => {
                 </svg>
 
                 <div className={styles.cartCount}>
-                    {cartItems.length}
+                    {cartItems.reduce((sum, item) => {
+                        return sum + item.count
+                    }, 0)}
                 </div>
             </Link>
 
