@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeItemFromCart, plusItem, minusItem } from '../../redux/slices/cartSlice';
+import { removeItemFromCart, plusItem, minusItem, clearCart } from '../../redux/slices/cartSlice';
+import LinkTo from '../UI/link-to/LinkTo';
 
 import styles from './CartBlock.module.scss';
 
@@ -8,11 +9,22 @@ const CartBlock = () => {
     const dispatch = useDispatch()
     const { cartItems, totalPrice } = useSelector(state => state.cart)
 
-    console.log(cartItems);
-
     if (cartItems.length === 0) {
-        return <div className={styles.wrapper}><div>cart is empty</div></div>
+        return (
+            <div style={{ color: "#fff", height: "100vh", display: 'flex', justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                <div style={{ height: "400px", backgroundImage: "url('https://static.insales-cdn.com/images/products/1/5908/538515220/large_large_large_hit_4.png')", backgroundSize: "contain", backgroundRepeat: "no-repeat", textShadow: "4px 4px 7px #000" }}>
+                    <h2 style={{ textAlign: "center", fontSize: "120px" }}>SORRY</h2>
+                    <h3 style={{ textAlign: "center", fontSize: "60px" }} >You cart is empty, please buy something
+                    </h3>
+                    <div style={{ textAlign: "center", marginTop: "30px" }}>
+                        <svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 16 16" height="90px" width="90px" xmlns="http://www.w3.org/2000/svg"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path></svg>
+                    </div>
+                </div>
+                <LinkTo to="/" children="Home" />
+            </div>
+        )
     }
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.top}>
@@ -22,7 +34,7 @@ const CartBlock = () => {
                 </h3>
                 <button
                     className={styles.clearBtn}
-                    onClick={() => { }}>
+                    onClick={() => dispatch(clearCart())}>
                     <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="55px" width="55px" xmlns="http://www.w3.org/2000/svg"><path d="M7 6V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7ZM13.4142 13.9997L15.182 12.232L13.7678 10.8178L12 12.5855L10.2322 10.8178L8.81802 12.232L10.5858 13.9997L8.81802 15.7675L10.2322 17.1817L12 15.4139L13.7678 17.1817L15.182 15.7675L13.4142 13.9997ZM9 4V6H15V4H9Z"></path></svg>
                 </button>
             </div>
@@ -39,11 +51,11 @@ const CartBlock = () => {
                                 <h6 className={styles.cartItemName}>{item.name}</h6>
                                 <div className={styles.cartItemQuantity}>
                                     <button onClick={() => dispatch(minusItem(item))}>
-                                        <span>&lt;</span>
+                                        <span>-</span>
                                     </button>
                                     <span>{item.count}</span>
                                     <button onClick={() => dispatch(plusItem(item))}>
-                                        <span>&gt;</span>
+                                        <span>+</span>
                                     </button>
                                 </div>
                             </div>

@@ -25,10 +25,11 @@
 }
 
 .block {
+    width: 1230px;
     display: flex;
     align-items: center;
     padding-bottom: 100px;
-    gap: 400px;
+    justify-content: space-around;
     text-shadow: 1px 4px 4px black;
 }
 

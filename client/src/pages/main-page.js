@@ -25,7 +25,7 @@ const MainPage = () => {
             <div className={styles.container}>
                 <Footer />
             </div>
-        </div>
+        </div >
     );
 };
 
