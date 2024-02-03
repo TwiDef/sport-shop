@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../../redux/slices/cartSlice';
+
 import ReactPaginate from 'react-paginate';
 import Sceleton from '../sceleton/Sceleton';
+import ItemCard from '../item-card/ItemCard';
 
 import styles from './Catalog.module.scss';
 
-const Catalog = ({ items, isLoading, title, paramName }) => {
 
-    const dispatch = useDispatch()
+const Catalog = ({ items, isLoading, title, paramName }) => {
 
     const skeletons = [...new Array(6)].map((_, i) => <div><Sceleton key={i} /></div>)
 
@@ -25,18 +23,6 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
         setItemOffset(newOffset);
         window.scrollTo(0, 0);
     };
-
-    const addToCart = (item) => {
-        const cartItem = {
-            id: item._id,
-            name: item.name,
-            price: item.price,
-            image: item.image,
-            rating: item.rating,
-            count: 0
-        }
-        dispatch(addItemToCart(cartItem))
-    }
 
     if (isLoading) {
         return (
@@ -58,23 +44,7 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
             <div className={styles.CatalogList}>
                 {currentItems.map(item => {
                     return (
-                        <div key={item._id} className={styles.card}>
-                            <span className={styles.rating}>{item.rating}</span>
-                            <Link to={`/${paramName}/${item._id}`}>
-                                <img src={item.image} alt={item.name} />
-                            </Link>
-                            <div className={styles.cardInfo}>
-                                <h5>{item.name}</h5>
-                                <p>{`${item.description.slice(0, 120)} . . .`}</p>
-                                <div className={styles.cardFooter}>
-                                    <p>{new Intl.NumberFormat('ru-Ru', {
-                                        style: 'currency',
-                                        currency: 'USD'
-                                    }).format(item.price)}</p>
-                                    <button onClick={() => addToCart(item)}>buy</button>
-                                </div>
-                            </div>
-                        </div>
+                        <ItemCard item={item} paramName={paramName} />
                     )
                 })}
             </div>
