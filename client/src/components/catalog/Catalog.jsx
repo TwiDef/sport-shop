@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchValue } from '../../redux/slices/itemsSlice';
+import { RxCross2 } from "react-icons/rx";
 
 import ReactPaginate from 'react-paginate';
 import Sceleton from '../sceleton/Sceleton';
@@ -44,6 +45,10 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
         }
     }
 
+    const onClearSearch = () => {
+        dispatch(setSearchValue(""))
+    }
+
     if (isLoading) {
         return (
             <div className={styles.Catalog}>
@@ -61,13 +66,16 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
         <div className={styles.Catalog}>
             <div className={styles.header}>
                 <h3>{title} catalog</h3>
-                <input
-
-                    className={styles.search}
-                    value={searchValue}
-                    onChange={onChangeSearchValue}
-                    placeholder='search...'
-                    type="text" />
+                <div style={{ position: "relative" }}>
+                    <input
+                        className={styles.search}
+                        value={searchValue}
+                        onChange={onChangeSearchValue}
+                        placeholder='search...'
+                        type="text"
+                    />
+                    {searchValue ? <span onClick={onClearSearch} className={styles.removeSearch}><RxCross2 /></span> : null}
+                </div>
             </div>
 
             <hr className={styles.topLine} />

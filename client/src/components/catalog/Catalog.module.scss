@@ -11,9 +11,9 @@
 
     .search {
         height: 30px;
-        max-width: 240px;
+        max-width: 220px;
         width: 100%;
-        padding: 5px 10px;
+        padding: 5px 34px 5px 10px;
         outline: none;
         font-size: 18px;
         font-weight: 600;
@@ -25,6 +25,28 @@
             color: #4f4f4f;
             font-size: 18px;
             font-weight: 600;
+        }
+    }
+
+    .removeSearch {
+        position: absolute;
+        color: #000000;
+        top: 4px;
+        right: 4px;
+        cursor: pointer;
+        transition: all .1s ease-in-out;
+
+        svg {
+            height: 1.6rem;
+            width: 1.6rem;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:active {
+            transform: scale(.9);
         }
     }
 
