@@ -39,7 +39,7 @@ const ItemCard = ({ item, paramName }) => {
                         currency: 'USD'
                     }).format(item.price)}</p>
                     <button onClick={() => addToCart(item)}>
-                        buy {addedCount > 0 && addedCount}
+                        {addedCount > 0 ? ` ${addedCount} in cart ` : 'buy'}
                     </button>
                 </div>
             </div>

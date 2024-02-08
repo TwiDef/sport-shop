@@ -26,6 +26,7 @@ export const itemsSlice = createSlice({
     initialState: {
         bikes: [],
         boards: [],
+        searchValue: "",
         currentItem: null,
         isError: false,
         isLoading: false,
@@ -33,6 +34,9 @@ export const itemsSlice = createSlice({
         activeCategory: null
     },
     reducers: {
+        setSearchValue: (state, action) => {
+            state.searchValue = action.payload
+        },
         setActiveCategory: (state, action) => {
             state.activeCategory = action.payload
         },
@@ -87,6 +91,7 @@ export const {
     setActiveCategory,
     setCurrentItem,
     removeCurrentItem,
+    setSearchValue
 } = itemsSlice.actions
 
 export default itemsSlice.reducer

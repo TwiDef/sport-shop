@@ -60,8 +60,8 @@ const CarouselBlock = () => {
                     {
                         bikes.filter(bike => bike.rating > 5)
                             .map((item) => {
-                                return <Link to={`bikes/${item._id}`}>
-                                    <div key={item._id} className='box'>
+                                return <Link key={item._id} to={`bikes/${item._id}`}>
+                                    <div className='box'>
                                         <span className='box-rating'>{item.rating}</span>
                                         <div className='box-inner'>
                                             <span>{item.name}</span>
