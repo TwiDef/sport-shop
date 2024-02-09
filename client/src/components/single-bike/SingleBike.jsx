@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentItem, removeCurrentItem } from '../../redux/slices/itemsSlice';
+import { setCurrentItem, removeCurrentItem, setActiveCategory } from '../../redux/slices/itemsSlice';
 
 import Button from '../UI/button/Button';
 import Spinner from '../spinner/Spinner';

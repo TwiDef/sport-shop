@@ -17,7 +17,6 @@ const CarouselBlock = () => {
         dispatch(fetchBikes())
     }, [dispatch])
 
-
     const settings = {
         className: "center",
         centerMode: true,
@@ -56,26 +55,26 @@ const CarouselBlock = () => {
             <h4 className="carousel-subtitle">hits of the season</h4>
             <div className="carousel">
                 <Slider {...settings}>
-
                     {
                         bikes.filter(bike => bike.rating > 5)
                             .map((item) => {
-                                return <Link key={item._id} to={`bikes/${item._id}`}>
-                                    <div className='box'>
+                                return (
+                                    <div key={item._id} className='box'>
                                         <span className='box-rating'>{item.rating}</span>
-                                        <div className='box-inner'>
-                                            <span>{item.name}</span>
-                                            <span>{new Intl.NumberFormat('ru-Ru', {
-                                                style: 'currency',
-                                                currency: 'USD'
-                                            }).format(item.price)}</span>
-                                        </div>
+                                        <Link to={`bikes/${item._id}`}>
+                                            <div className='box-inner'>
+                                                <span>{item.name}</span>
+                                                <span>{new Intl.NumberFormat('ru-Ru', {
+                                                    style: 'currency',
+                                                    currency: 'USD'
+                                                }).format(item.price)}</span>
+                                            </div>
+                                        </Link>
                                         <img className="slide-img" src={item.image} alt={item.id} />
                                     </div>
-                                </Link>
+                                )
                             })
                     }
-
                 </Slider>
             </div>
 

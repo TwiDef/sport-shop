@@ -1,5 +1,6 @@
 .wrapper {
     padding: 8% 0;
+    animation: appearance 1s ease-in-out;
 }
 
 .top {
@@ -30,6 +31,8 @@
 
 .cartItemWrapper {
     padding: 0 100px;
+    height: auto;
+    transition: all 2s;
 }
 
 .cartItem {
@@ -168,4 +171,16 @@
         color: #fb3455;
     }
 
+}
+
+/* animations */
+
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

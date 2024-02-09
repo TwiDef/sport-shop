@@ -52,6 +52,11 @@
     transform: rotate(-15deg);
     top: 30px;
     left: -8px;
+    cursor: pointer;
+    transition: .2s;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .box-inner::after {
@@ -66,7 +71,6 @@
 
 .slick-slide div {
     margin: 0 10px;
-    cursor: pointer;
 }
 
 .box img {
