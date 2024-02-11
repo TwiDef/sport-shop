@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setActiveCategory } from '../../redux/slices/itemsSlice';
 
 import { FaHome, FaPhoneSquare } from "react-icons/fa";
+import { BiSolidContact } from "react-icons/bi";
 import { MdDirectionsBike, MdOutlineSurfing } from "react-icons/md";
 
 import styles from './Header.module.scss';
@@ -33,6 +34,12 @@ const Header = () => {
             to: "/contacts",
             icon: <FaPhoneSquare />,
             children: "Contacts",
+            active: false
+        },
+        {
+            to: "/about",
+            icon: <BiSolidContact />,
+            children: "About us",
             active: false
         },
     ]

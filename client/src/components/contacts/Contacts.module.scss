@@ -1,0 +1,49 @@
+.contacts {
+    height: 100vh;
+    padding: 30px 0;
+    animation: appearance 1s ease-in-out;
+}
+
+.title {
+    font-size: 40px;
+}
+
+.subtitle {
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.phone {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #dfdfdf;
+    font-weight: 600;
+
+    a {
+        color: #d21131;
+    }
+}
+
+.contactsMap {
+    display: block;
+    margin: 40px auto 0;
+    max-width: 1200px;
+    width: 100%;
+    max-height: 600px;
+    height: 100%;
+    animation: appearance 3s ease-in-out;
+}
+
+/* animations */
+
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

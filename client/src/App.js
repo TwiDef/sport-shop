@@ -9,6 +9,8 @@ import NotFoundPage from './pages/not-found-page';
 import SingleBikePage from './pages/single-bike-page';
 import SingleBoardPage from './pages/single-board-page';
 import CartPage from './pages/cart-page';
+import ContactsPage from './pages/contacts-page';
+import AboutUsPage from './pages/about-us-page';
 
 import styles from './App.module.scss';
 
@@ -20,6 +22,7 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<MainPage />} />
+
                 <Route path="/bikes" element={<div className={styles.container}>
                     <BikesCatalogPage />
                 </div>} />
@@ -34,6 +37,12 @@ function App() {
                 </div>} />
                 <Route path="/cart" element={<div className={styles.container}>
                     <CartPage />
+                </div>} />
+                <Route path="/contacts" element={<div className={styles.containerXl}>
+                    <ContactsPage />
+                </div>} />
+                <Route path="/about" element={<div className={styles.containerXl}>
+                    <AboutUsPage />
                 </div>} />
 
                 <Route path='*' element={<NotFoundPage />} />

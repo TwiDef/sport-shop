@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Footer.module.scss';
 
@@ -9,23 +10,23 @@ const Footer = () => {
                 <div className={styles.content}>
                     <h6 className={styles.title}>about us</h6>
                     <ul className={styles.list}>
-                        <a className={styles.link} href="#">
+                        <Link to="/about" className={styles.link}>
                             <li className={styles.item}>about us</li>
-                        </a>
-                        <a className={styles.link} href="#">
+                        </Link>
+                        <Link to="/contacts" className={styles.link}>
                             <li className={styles.item}> contacts</li>
-                        </a>
+                        </Link>
                     </ul>
                 </div>
                 <div className={styles.content}>
                     <h6 className={styles.title}>choose your sport</h6>
                     <ul className={styles.list}>
-                        <a className={styles.link} href="#">
+                        <Link to="/boards" className={styles.link} >
                             <li className={styles.item}>supboarding</li>
-                        </a>
-                        <a className={styles.link} href="#">
+                        </Link>
+                        <Link to="/bikes" className={styles.link}>
                             <li className={styles.item}>cycling</li>
-                        </a>
+                        </Link>
                     </ul>
                 </div>
                 <div className={styles.content}>
@@ -53,7 +54,9 @@ const Footer = () => {
                 </div>
                 <div className={styles.content}>
                     <h6 className={styles.title}>our address</h6>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2290.78643912796!2d20.480972912241537!3d54.959306454204444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e344f78954f089%3A0x4072ddf1d36578dd!2z0YPQuy4g0JPQtdGA0YbQtdC90LAsIDQsINCX0LXQu9C10L3QvtCz0YDQsNC00YHQuiwg0JrQsNC70LjQvdC40L3Qs9GA0LDQtNGB0LrQsNGPINC-0LHQuy4sIDIzODMyNg!5e0!3m2!1sru!2sru!4v1707478099420!5m2!1sru!2sru" width="350" height="250" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2290.78643912796!2d20.480972912241537!3d54.959306454204444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e344f78954f089%3A0x4072ddf1d36578dd!2z0YPQuy4g0JPQtdGA0YbQtdC90LAsIDQsINCX0LXQu9C10L3QvtCz0YDQsNC00YHQuiwg0JrQsNC70LjQvdC40L3Qs9GA0LDQtNGB0LrQsNGPINC-0LHQuy4sIDIzODMyNg!5e0!3m2!1sru!2sru!4v1707478099420!5m2!1sru!2sru" width="350" height="250" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </footer>
