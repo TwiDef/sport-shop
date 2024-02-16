@@ -50,7 +50,7 @@
         }
     }
 
-    h3 {
+    .title {
         font-family: 'Inter', sans-serif;
         font-family: 'Lemon', serif;
         font-size: 50px;
@@ -64,6 +64,13 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+}
+
+.CatalogListEmpty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
 }
 
 

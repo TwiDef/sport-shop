@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchValue } from '../../redux/slices/itemsSlice';
 import { RxCross2 } from "react-icons/rx";
@@ -6,14 +6,20 @@ import { RxCross2 } from "react-icons/rx";
 import ReactPaginate from 'react-paginate';
 import Sceleton from '../sceleton/Sceleton';
 import ItemCard from '../item-card/ItemCard';
+import NotFoundMsg from '../not-found-msg/NotFoundMsg';
 
 import styles from './Catalog.module.scss';
 
-
 const Catalog = ({ items, isLoading, title, paramName }) => {
 
+    useEffect(() => {
+        return () => {
+            dispatch(setSearchValue(""))
+        }
+    }, [])
+
     const dispatch = useDispatch()
-    const { searchValue } = useSelector(state => state.items)
+    const { searchValue, isError } = useSelector(state => state.items)
     const skeletons = [...new Array(6)].map((_, i) => <div key={i}><Sceleton /></div>)
 
     const [itemOffset, setItemOffset] = useState(0);
@@ -52,7 +58,7 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
     if (isLoading) {
         return (
             <div className={styles.Catalog}>
-                <h3>{title} catalog</h3>
+                <h3 className={styles.title}>{title} catalog</h3>
                 <hr />
                 <div className={styles.skeletonsWrapper}>
                     {skeletons}
@@ -62,10 +68,21 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
         )
     }
 
+    if (isError) {
+        return (
+            <div className={styles.Catalog}>
+                <h3 className={styles.title}>{title} catalog</h3>
+                <hr />
+                <NotFoundMsg title={"SORRY"} subtitle={"Something went wrong, try again later"} />
+                <hr />
+            </div>
+        )
+    }
+
     return (
         <div className={styles.Catalog}>
             <div className={styles.header}>
-                <h3>{title} catalog</h3>
+                <h3 className={styles.title}>{title} catalog</h3>
                 <div style={{ position: "relative" }}>
                     <input
                         className={styles.search}
@@ -79,18 +96,20 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
             </div>
 
             <hr className={styles.topLine} />
-            <div className={styles.CatalogList}>
-
-                {!items.length ?
-                    <div>not</div> :
-                    currentItems.map(item => {
-                        return (
-                            <ItemCard key={item._id} item={item} paramName={paramName} />
-                        )
-                    })
-                }
-
-            </div>
+            {!items.length ?
+                <div className={styles.CatalogListEmpty}>
+                    <NotFoundMsg title={"SORRY"} subtitle={"nothing was found for your request"} />
+                </div> :
+                <div className={styles.CatalogList}>
+                    {
+                        currentItems.map(item => {
+                            return (
+                                <ItemCard key={item._id} item={item} paramName={paramName} />
+                            )
+                        })
+                    }
+                </div>
+            }
             <ReactPaginate
                 className={styles.pagination}
                 breakLabel="..."
