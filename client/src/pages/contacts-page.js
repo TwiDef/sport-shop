@@ -9,6 +9,11 @@ const ContactsPage = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+
+    useEffect(() => {
         dispatch(setActiveCategory(3))
     }, [dispatch])
 

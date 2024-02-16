@@ -81,11 +81,14 @@ const Catalog = ({ items, isLoading, title, paramName }) => {
             <hr className={styles.topLine} />
             <div className={styles.CatalogList}>
 
-                {currentItems.map(item => {
-                    return (
-                        <ItemCard key={item._id} item={item} paramName={paramName} />
-                    )
-                })}
+                {!items.length ?
+                    <div>not</div> :
+                    currentItems.map(item => {
+                        return (
+                            <ItemCard key={item._id} item={item} paramName={paramName} />
+                        )
+                    })
+                }
 
             </div>
             <ReactPaginate
