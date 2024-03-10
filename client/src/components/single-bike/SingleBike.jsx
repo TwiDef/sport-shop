@@ -7,6 +7,7 @@ import Button from '../UI/button/Button';
 import Spinner from '../spinner/Spinner';
 
 import styles from './SingleBike.module.scss';
+import { addItemToCart } from '../../redux/slices/cartSlice';
 
 const SingleBike = () => {
     const params = useParams()
@@ -15,6 +16,26 @@ const SingleBike = () => {
 
     const { currentItem } = useSelector(state => state.items)
     const { id } = params
+
+    const cartItem = useSelector(state => state.cart.cartItems
+        .find(findedItem => findedItem.id === id))
+    const addedCount = cartItem ? cartItem.count : 0
+
+    const addToCart = (item) => {
+        if (item) {
+            dispatch(addItemToCart({ ...item, count: 1 }))
+        } else {
+            const cartItem = {
+                id: currentItem._id,
+                name: currentItem.name,
+                price: currentItem.price,
+                image: currentItem.image,
+                rating: currentItem.rating,
+                count: 0
+            }
+            dispatch(addItemToCart(cartItem))
+        }
+    }
 
     useEffect(() => {
         dispatch(setCurrentItem({ type: "bikes", id }))
@@ -51,7 +72,8 @@ const SingleBike = () => {
                     }).format(currentItem.price)}
                 </p>
                 <div className={styles.btnContainer}>
-                    <Button pY={12} pX={60} onClick={() => alert('Bought ')} children={'buy'} />
+                    <Button pY={12} pX={60} onClick={() => addToCart(cartItem)}
+                        children={addedCount > 0 ? ` ${addedCount} in cart ` : 'buy'} />
                     <Button pY={12} pX={70} onClick={() => { navigate(-1) }} children={'back'} />
                 </div>
             </div>

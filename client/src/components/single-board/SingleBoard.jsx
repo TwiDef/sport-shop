@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentItem, removeCurrentItem } from '../../redux/slices/itemsSlice';
+import { addItemToCart } from '../../redux/slices/cartSlice';
 
 import Button from '../UI/button/Button';
 import Spinner from '../spinner/Spinner';
@@ -16,6 +17,25 @@ const SingleBoard = () => {
     const { currentItem } = useSelector(state => state.items)
     const { id } = params
 
+    const cartItem = useSelector(state => state.cart.cartItems
+        .find(findedItem => findedItem.id === id))
+    const addedCount = cartItem ? cartItem.count : 0
+
+    const addToCart = (item) => {
+        if (item) {
+            dispatch(addItemToCart({ ...item, count: 1 }))
+        } else {
+            const cartItem = {
+                id: currentItem._id,
+                name: currentItem.name,
+                price: currentItem.price,
+                image: currentItem.image,
+                rating: currentItem.rating,
+                count: 0
+            }
+            dispatch(addItemToCart(cartItem))
+        }
+    }
 
     useEffect(() => {
         dispatch(setCurrentItem({ type: "boards", id }))
@@ -53,7 +73,8 @@ const SingleBoard = () => {
                     }).format(currentItem.price)}
                 </p>
                 <div className={styles.btnContainer}>
-                    <Button pY={12} pX={60} onClick={() => alert('Bought ')} children={'buy'} />
+                    <Button pY={12} pX={60} onClick={() => addToCart(cartItem)}
+                        children={addedCount > 0 ? ` ${addedCount} in cart ` : 'buy'} />
                     <Button pY={12} pX={70} onClick={() => { navigate(-1) }} children={'back'} />
                 </div>
 
