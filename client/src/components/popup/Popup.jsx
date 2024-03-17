@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
 import { useFormik } from 'formik';
+import { useSelector, useDispatch } from 'react-redux';
+import { onBuyItems } from '../../redux/slices/userdataSlice';
+import { clearCart } from '../../redux/slices/cartSlice';
 import * as Yup from 'yup';
 
 import { MdOutlineEmail } from "react-icons/md";
@@ -11,6 +14,9 @@ import styles from './Popup.module.scss';
 
 
 const Popup = ({ setPopUp }) => {
+    const { cartItems } = useSelector(state => state.cart)
+    const dispatch = useDispatch()
+
     const emailField = useRef(null)
     const phoneField = useRef(null)
 
@@ -30,18 +36,21 @@ const Popup = ({ setPopUp }) => {
                 .required("Required field")
         }),
         onSubmit: (values) => {
-            console.log(JSON.stringify(values, null, 2))
             emailField.current.value = ""
             phoneField.current.value = ""
+            dispatch(onBuyItems([cartItems, JSON.parse(JSON.stringify(values, null, 2))]))
             setTimeout(() => {
                 setPopUp(false)
+                dispatch(clearCart())
             }, 1000)
         }
     })
 
     return (
         <article className={styles.overlay}>
-            <form className={styles.modal} onSubmit={formik.handleSubmit}>
+            <form
+                className={styles.modal}
+                onSubmit={formik.handleSubmit}>
 
                 <svg onClick={() => setPopUp(false)} className={styles.closeBtn} stroke="red" fill="#ee173c" strokeWidth="0" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path></svg>
 
